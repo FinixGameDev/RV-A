@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Test Xr"
+config/name="RV-A"
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://SplashScreen.png"
 boot_splash/fullsize=false
