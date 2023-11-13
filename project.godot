@@ -8,14 +8,40 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Path",
+"class": "RoadLane",
+"language": "GDScript",
+"path": "res://addons/road-generator/road_lane.gd"
+}, {
+"base": "Spatial",
+"class": "RoadNetwork",
+"language": "GDScript",
+"path": "res://addons/road-generator/road_network.gd"
+}, {
+"base": "Spatial",
+"class": "RoadPoint",
+"language": "GDScript",
+"path": "res://addons/road-generator/road_point.gd"
+} ]
+_global_script_class_icons={
+"RoadLane": "",
+"RoadNetwork": "res://addons/road-generator/road_segment.png",
+"RoadPoint": "res://addons/road-generator/road_point.png"
+}
+
 [application]
 
 config/name="RV-A"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://VRController.tscn"
 boot_splash/image="res://SplashScreen.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/road-generator/plugin.cfg" )
 
 [gui]
 

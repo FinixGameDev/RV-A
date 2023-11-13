@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/road-generator/road_point.gd" type="Script" id=1]
+[ext_resource path="res://addons/road-generator/road_network.gd" type="Script" id=2]
+[ext_resource path="res://addons/road-generator/road_texture.material" type="Material" id=3]
+
+[node name="Road" type="Spatial"]
+
+[node name="RoadNetwork" type="Spatial" parent="."]
+script = ExtResource( 2 )
+material_resource = ExtResource( 3 )
+use_lowpoly_preview = true
+points = NodePath("points")
+segments = NodePath("segments")
+
+[node name="points" type="Spatial" parent="RoadNetwork"]
+
+[node name="RP_001" type="Spatial" parent="RoadNetwork/points"]
+script = ExtResource( 1 )
+traffic_dir = [ 2, 2, 1, 1 ]
+lanes = [ 2, 4, 4, 2 ]
+next_pt_init = NodePath("../RP_002")
+
+[node name="RP_002" type="Spatial" parent="RoadNetwork/points"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32 )
+script = ExtResource( 1 )
+traffic_dir = [ 2, 2, 1, 1 ]
+lanes = [ 2, 4, 4, 2 ]
+prior_pt_init = NodePath("../RP_001")
+
+[node name="segments" type="Spatial" parent="RoadNetwork"]
